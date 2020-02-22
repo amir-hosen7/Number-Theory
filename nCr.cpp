@@ -4,6 +4,25 @@ using namespace std;
 const int N = 1e5;
 const int mod = 1e9+7;
 
+
+int bigMod(int b, int p){
+    int even, odd, ans;
+    if(p == 0){
+        return 1;
+    }
+    if(p % 2 == 0){
+        even = bigMod(b, p/2);
+        ans = (even * even) % mod;
+    }
+    if(p % 2 == 1){
+        odd = b % mod;
+        even = bigMod(b, p-1);
+        ans = (odd * even) % mod;
+    }
+    return ans;
+}
+
+//works as bigMod
 int powerMod(int b, int p){
     int res = 1;
     while(p){
