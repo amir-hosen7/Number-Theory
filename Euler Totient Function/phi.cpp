@@ -37,8 +37,6 @@ void init(){
                 phi[j]-=phi[j]/i;
             }
         }
-        phi[i]*=phi[i]; 
-        phi[i]+=phi[i-1];
     }
 }
 
